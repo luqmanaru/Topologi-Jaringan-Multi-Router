@@ -1,0 +1,20 @@
+enable
+configure terminal
+hostname AP-Office
+dot11 ssid OfficeNetwork
+vlan 1
+authentication open
+authentication key-management wpa
+guest-mode
+wpa-psk ascii 0 SecretPass123
+exit
+interface Dot11Radio0
+ssid OfficeNetwork
+no shutdown
+exit
+interface GigabitEthernet0/0
+ip address 192.168.5.10 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.5.1
+end
